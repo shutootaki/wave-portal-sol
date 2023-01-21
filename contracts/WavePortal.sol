@@ -29,8 +29,8 @@ contract WavePortal {
     function wave(string memory _message) public {
         // 最後のWaveから15分以内にWaveを送った場合はトランザクションをストップする
         require(
-            lastWavedAt[msg.sender] + 15 minutes < block.timestamp,
-            "wait 15m"
+            lastWavedAt[msg.sender] + 1 minutes < block.timestamp,
+            "wait 1m"
         );
 
         lastWavedAt[msg.sender] = block.timestamp;
